@@ -24,7 +24,18 @@ class PostOut(PostBase):
     class Config:
         from_attributes = True
         
-class UserCreate(BaseModel):
+        
+        
+class UserBase(BaseModel):
     email: EmailStr
     password: str
+    created_at: datetime
+    
+class UserCreate(UserBase):
+    pass
+
+
+class UserOut(UserBase):
+    id: int
+    email: EmailStr
     created_at: datetime
